@@ -1,0 +1,24 @@
+{
+	"schemaVersion": 1,
+	"id": "sikologinparticles",
+	"version": "${version}",
+	"name": "SikoLoginParticles",
+	"description": "Reproduce una pequena animacion de particulas en espiral alrededor del jugador al entrar a un mundo o servidor.",
+	"authors": [
+		"Siko"
+	],
+	"contact": {},
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.siko.sikologinparticles.SikoLoginParticlesClient"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"fabric-api": "*",
+		"minecraft": "~1.21.1",
+		"java": ">=21"
+	}
+}
