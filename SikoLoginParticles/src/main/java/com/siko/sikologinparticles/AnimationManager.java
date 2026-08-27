@@ -55,7 +55,7 @@ public class AnimationManager {
 	/** Reproduce el efecto de inmediato, sin esperar el retardo (usado por el comando debug). */
 	public void startImmediate(ServerPlayerEntity player, SikoEffectType type) {
 		UUID uuid = player.getUuid();
-		active.put(uuid, new Animation(type, Math.max(1, config.durationTicks)));
+		active.put(uuid, new Animation(type, resolveDuration(type)));
 		if (config.playSound) {
 			playSound(player);
 		}
@@ -88,7 +88,7 @@ public class AnimationManager {
 				SikoEffectType type = pendingType.remove(uuid);
 				ServerPlayerEntity player = server.getPlayerManager().getPlayer(uuid);
 				if (player != null && type != null) {
-					active.put(uuid, new Animation(type, Math.max(1, config.durationTicks)));
+					active.put(uuid, new Animation(type, resolveDuration(type)));
 					if (config.playSound) {
 						playSound(player);
 					}
@@ -122,5 +122,20 @@ public class AnimationManager {
 		SoundEvent sound = config.resolveSound();
 		player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(),
 				sound, SoundCategory.PLAYERS, config.soundVolume, 1.0f);
+	}
+
+	/**
+	 * Duracion en ticks para un efecto concreto. FENIX es el efecto "epico"
+	 * y necesita mas tiempo para desplegar la doble helice de fuego y el
+	 * haz de luz final, asi que se le da el doble de duracion configurada
+	 * (con un minimo de 70 ticks = 3.5s) independientemente del valor de
+	 * duration_ticks usado por los otros 3 efectos.
+	 */
+	private int resolveDuration(SikoEffectType type) {
+		int base = Math.max(1, config.durationTicks);
+		if (type == SikoEffectType.FENIX) {
+			return Math.max(base * 2, 70);
+		}
+		return base;
 	}
 }

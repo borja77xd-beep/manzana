@@ -13,7 +13,8 @@ public enum SikoEffectType {
 
 	HOJAS("hojas"),
 	SAKURA("sakura"),
-	VIENTO("viento");
+	VIENTO("viento"),
+	FENIX("fenix");
 
 	/** Identificador en minusculas usado en comandos y en el archivo de datos. */
 	private final String id;

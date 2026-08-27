@@ -14,9 +14,10 @@ diferencia de la primera version, este mod es **100% server-side**:
 
 | Nombre    | Que se ve                                                                 |
 |-----------|----------------------------------------------------------------------------|
-| `hojas`   | Remolino de hojas de roble (textura vanilla real de las hojas) girando de forma natural alrededor del cuerpo. |
+| `hojas`   | Remolino de hojas de roble (textura vanilla real de las hojas) llevadas por una brisa aleatoria: cada hoja nace en un punto distinto, gira un poco alrededor del cuerpo y sube de forma irregular, como si el viento la empujara de verdad. |
 | `sakura`  | Petalos de flor de cerezo cayendo suavemente alrededor del jugador (particula vanilla `cherry_leaves`). |
 | `viento`  | Pequeno torbellino de viento (particula vanilla del Breeze/carga de viento) que nace en los pies y sube en espiral. |
+| `fenix`   | El efecto "epico", solo con fuego y brillos (sin nada de combate). Un par de alas de fuego (normal y de alma) se despliegan desde la espalda del jugador con un aleteo suave, mas una columna de fuego en el cuerpo. Empieza con un estallido de chispas doradas (particula del Totem de la Inmortalidad) y termina con un haz de luz disparandose al cielo. Dura mas que los demas (~3.5s) para que le de tiempo a desplegarse. |
 
 ## Requisitos
 
@@ -73,7 +74,7 @@ operadores** (nivel de permiso 2, es decir, jugadores con `/op`).
 ### Asignar un efecto a un jugador
 
 ```
-/sikoeffects set <jugador> <hojas|sakura|viento|ninguno>
+/sikoeffects set <jugador> <hojas|sakura|viento|fenix|ninguno>
 ```
 
 Ejemplos:
@@ -94,7 +95,7 @@ sobrevive a reinicios del servidor (se guarda en un archivo).
 ### Previsualizar un efecto (comando debug)
 
 ```
-/sikoeffects debug <hojas|sakura|viento>
+/sikoeffects debug <hojas|sakura|viento|fenix>
 ```
 
 Reproduce el efecto **inmediatamente sobre ti mismo**, sin esperar el
@@ -158,7 +159,7 @@ igual a los 3 efectos):
 |-----------------|------------------------------------------------------------------------------|
 | `enabled`       | Interruptor general: si es `false`, no se dispara ningun efecto.            |
 | `delayTicks`    | Ticks de espera tras entrar al servidor antes de iniciar el efecto.         |
-| `durationTicks` | Duracion total del efecto en ticks (20 ticks = 1 segundo).                  |
+| `durationTicks` | Duracion total del efecto en ticks (20 ticks = 1 segundo). No aplica a `fenix`, que siempre dura al menos 70 ticks (~3.5s) para poder desplegar toda su secuencia. |
 | `radius`        | Radio, en bloques, del efecto alrededor del jugador.                        |
 | `particleCount` | Numero aproximado de particulas repartidas a lo largo de toda la duracion.  |
 | `playSound`     | Si se reproduce un sonido corto (audible para los cercanos) al empezar.     |

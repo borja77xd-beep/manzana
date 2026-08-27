@@ -30,8 +30,8 @@ import java.util.Optional;
 public final class SikoEffectsCommand {
 
 	private static final List<String> SET_EFFECT_NAMES =
-			Arrays.asList("hojas", "sakura", "viento", SikoEffectType.NONE_KEYWORD);
-	private static final List<String> DEBUG_EFFECT_NAMES = Arrays.asList("hojas", "sakura", "viento");
+			Arrays.asList("hojas", "sakura", "viento", "fenix", SikoEffectType.NONE_KEYWORD);
+	private static final List<String> DEBUG_EFFECT_NAMES = Arrays.asList("hojas", "sakura", "viento", "fenix");
 
 	private SikoEffectsCommand() {
 	}
@@ -70,7 +70,7 @@ public final class SikoEffectsCommand {
 		Optional<SikoEffectType> type = SikoEffectType.fromId(effectId);
 		if (type.isEmpty()) {
 			context.getSource().sendError(
-					Text.literal("Efecto desconocido: " + effectId + ". Usa hojas, sakura, viento o ninguno."));
+					Text.literal("Efecto desconocido: " + effectId + ". Usa hojas, sakura, viento, fenix o ninguno."));
 			return 0;
 		}
 
@@ -96,7 +96,7 @@ public final class SikoEffectsCommand {
 		Optional<SikoEffectType> type = SikoEffectType.fromId(effectId);
 		if (type.isEmpty()) {
 			context.getSource().sendError(
-					Text.literal("Efecto desconocido: " + effectId + ". Usa hojas, sakura o viento."));
+					Text.literal("Efecto desconocido: " + effectId + ". Usa hojas, sakura, viento o fenix."));
 			return 0;
 		}
 
