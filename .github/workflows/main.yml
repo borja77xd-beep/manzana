@@ -23,11 +23,11 @@ jobs:
           gradle-version: 8.8
 
       - name: Compilar el mod
-        working-directory: SikoLoginParticles
+        working-directory: cobblemon-custom-balls
         run: gradle build
 
       - name: Publicar el .jar como descarga
         uses: actions/upload-artifact@v4
         with:
-          name: SikoLoginParticles-jar
-          path: SikoLoginParticles/build/libs/*.jar
+          name: cobblemon-custom-balls-jar
+          path: cobblemon-custom-balls/build/libs/*.jar
