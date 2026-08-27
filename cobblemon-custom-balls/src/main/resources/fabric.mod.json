@@ -1,0 +1,24 @@
+{
+	"schemaVersion": 1,
+	"id": "ccballs",
+	"version": "${version}",
+	"name": "Custom Cobblemon Balls",
+	"description": "Agrega la SikkoBall, Tournament SikkoBall, GS Ball y Escoria Ball a Cobblemon.",
+	"authors": ["TuNombre"],
+	"contact": {},
+	"license": "MIT",
+	"icon": "assets/ccballs/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.example.ccballs.CustomCobblemonBalls"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*",
+		"cobblemon": "*",
+		"minecraft": "1.21.1"
+	}
+}
