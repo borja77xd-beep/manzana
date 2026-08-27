@@ -1,0 +1,24 @@
+{
+	"schemaVersion": 1,
+	"id": "sikologinparticles",
+	"version": "${version}",
+	"name": "SikoLoginParticles",
+	"description": "Efectos de particulas (hojas, sakura o viento) al entrar al servidor, asignables por un operador con /sikoeffects. Server-side: los jugadores no necesitan instalar nada.",
+	"authors": [
+		"Siko"
+	],
+	"contact": {},
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.siko.sikologinparticles.SikoLoginParticlesServer"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"fabric-api": "*",
+		"minecraft": "~1.21.1",
+		"java": ">=21"
+	}
+}
